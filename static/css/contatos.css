@@ -1,0 +1,102 @@
+
+/* importando fonte */
+@font-face {
+    font-family: 'font1';
+    src: url('../font/Oswald-Medium.ttf');
+    font-weight: 700;
+}
+
+/* RESET */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+#contatos-titulo {
+    /* top | right | botton | left */
+    padding: 0px 0px 15px 0px;
+    text-align: center;
+    margin: 20px;
+}
+
+#contatos-titulo h2{
+    color: #0f0;
+    font-family: 'font1', sans-serif;
+    font-size: 50px;
+}
+#contatos-titulo h3{
+    font-family: 'Helvetica', sans-serif;
+    color: #fff;
+    font-size: 25px;
+}
+
+.secao-contatos {
+    /* Usando uma fonte sans-serif moderna e limpa */
+    font-family:  'Helvetica', sans-serif;
+    font-size: 50px;
+    margin: 0 auto;
+    background-color: #111111; 
+    color: #ffffff; /* Cor do texto principal */
+    padding: 60px 20px; /* Espaçamento interno (vertical, horizontal) */
+    display: flex;
+    flex-direction: column;
+}
+
+.contatos-container {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */ 
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+
+.contato-coluna {
+    /* Esta classe é um container para os blocos 
+        caso você queira mais controle, mas o grid já resolve */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaço entre os blocos na mesma coluna */
+}
+
+.contato-bloco h3 {
+    font-size: 1.1rem; /* Tamanho do título */
+    font-weight: 700;
+    text-transform: uppercase; /* TUDO EM MAIÚSCULO */
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    letter-spacing: 0.5px; /* Leve espaçamento entre letras */
+}
+
+.contato-bloco p {
+    font-size: 0.9rem; /* Tamanho do texto de contato */
+    line-height: 1.6; /* Altura da linha para boa legibilidade */
+    margin: 0 0 15px 0; /* Espaço entre os parágrafos */
+}
+
+/* Estilo dos links (emails) */
+.contato-bloco a {
+    color: #ffffff; /* Links com a mesma cor do texto */
+    text-decoration: none; /* Sem sublinhado */
+    font-weight: 600; /* Deixa o email em negrito, como na imagem */
+    word-break: break-all; /* Quebra emails longos */
+}
+
+.contato-bloco a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+
+/* RESPONSIVIDADE: 
+    Em telas menores (ex: celulares), muda para uma coluna 
+*/
+@media (max-width: 768px) {
+    .contatos-container {
+        /* Uma coluna só */
+        grid-template-columns: 1fr; 
+        gap: 30px; /* Reduz o espaço entre os blocos */
+    }
+}

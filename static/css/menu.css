@@ -1,0 +1,62 @@
+
+/* importando fonte */
+@font-face {
+    font-family: 'font1';
+    src: url('../font/Oswald-Medium.ttf');
+    font-weight: 700;
+}
+
+/* reset margin */
+* {
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#menu{
+    font-family: 'font1', sans-serif;
+    font-size: 25px;
+    background: #0c0202;    
+}
+
+#menu-navegacao{
+    display: flex;
+    flex-direction: row;
+    padding: 40px 15px;
+
+    /* ajusta a logo do lado esquerdo e o menu do lado direito */
+    justify-content: space-between;
+    width: 100%; /*ocupa total da largura 1350px*/ 
+    max-width: 1250px; /*limita maximo da largura*/ 
+    margin: 0 auto;
+    align-items: center;
+}
+
+#menu-navegacao a {
+    text-decoration: none;
+    color: #0f0;
+    padding: 4px;
+}
+
+#logo img {
+  width: 200px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover; /* manten a proporção e preenche*/
+  object-position: center; /*centraliza a imagem dentro da área */
+
+}
+
+/* botão login para painel admin */
+.btn-admin-login {
+    /* ADICIONE ESTAS 3 LINHAS */
+    background: none;
+    border: none;     
+    padding: 0; 
+    font-size: 25px;     
+
+    /* Faz o mouse parecer um link */
+    cursor: pointer; 
+    
+    /* Mantenha a cor do seu ícone (se ela mudou) */
+    color: #0f0;
+}

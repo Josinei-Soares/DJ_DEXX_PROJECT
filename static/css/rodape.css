@@ -1,0 +1,43 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background: #000;
+    color: white;
+    padding: 20px;
+}
+
+#rodape-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* Alinhar os ícones em linha */
+.icon {
+    display: flex;
+    gap: 40px;
+}
+
+/* tirar sublinhado dos links */
+.icon a {
+    text-decoration: none;
+}
+
+/* estilo dos ícones */
+.icon i {
+    font-size: 28px;
+    color: white;
+    transition: 0.3s;
+}
+
+/* efeito hover opcional */
+.icon i:hover {
+    color: #0f0; /* escolhe a cor que quiser */
+}

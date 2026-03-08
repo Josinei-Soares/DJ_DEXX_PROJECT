@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Galeria de Fotos{% endblock %}
+
+{% block content %}
+<!-- link para icones de visialização e download das fotos-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- secao titulo da galeira -->
+    <header style="text-align: center; padding: 20px;">
+        <h1>PRESSKIT</h1>
+        <p>Melhores momentos, festas, shows e eventos</p>
+    </header>
+<!-- secao fotos -->
+    <section class="secao-fotos">
+    
+        <div class="gallery-container">
+            
+            {% for foto in lista_de_fotos %}
+            
+            <!-- FOTOS -->
+            <div class="gallery-item">
+                <img src="{{ foto.foto.url }}" alt="{{ foto.titulo|default:'Foto' }}">
+                
+                <div class="overlay">
+                    <div class="acoes-topo">
+                        <a href="{{ foto.foto.url }}" class="btn-icone galeria-link" title="Visualizar">
+                            <i class="fas fa-expand"></i>
+                        </a>
+                        <a href="{{ foto.foto.url }}" download class="btn-icone" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {% empty %}
+
+            <p style="color: white; grid-column: 1/ -1; text-align: center;">
+                A galeira de fotos ainda esta vazia. volte em breve!
+            </p>       
+            
+            {% endfor %}
+
+        </div>
+    </section>
+
+<!-- link para popup das fotos-->
+<link rel="stylesheet" href="https://unpkg.com/luminous-lightbox@2.3.2/dist/luminous-basic.min.css">
+<script>
+    // Função para limpar e iniciar o popup com segurança
+    function configurarGaleria() {
+        var links = document.querySelectorAll(".galeria-link");
+        
+        // Verifica se a biblioteca carregou e se já não existe uma instância ativa
+        if (typeof LuminousGallery !== 'undefined' && links.length > 0 && !window.luminousInstance) {
+            
+            // Criamos a instância e guardamos na memória global do navegador
+            window.luminousInstance = new LuminousGallery(links);
+            console.log("Galeria DJ Dexx configurada com sucesso!");
+            
+        } else if (!window.luminousInstance) {
+            console.warn("Aguardando biblioteca Luminous...");
+        }
+    }
+
+    // Tenta rodar assim que o DOM estiver pronto
+    document.addEventListener("DOMContentLoaded", configurarGaleria);
+
+    // Backup caso o Django/Static demore (apenas se ainda não foi criado)
+    setTimeout(configurarGaleria, 1000);
+</script>
+<script src="https://unpkg.com/luminous-lightbox@2.3.2/dist/Luminous.min.js"></script>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+/* reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.secao-video{
+    background: #111;
+    padding: 10px;
+}
+
+#video{
+    border: 2px solid #9b9aa0;
+    border-radius: 8px;
+    
+    /* ADICIONE ESTAS LINHAS */
+    width: 100%;           /* Garante que o vídeo ocupe toda a largura */
+    height: 80vh;          /* Ajuste o número (80) para a altura que desejar */
+    object-fit: cover;     /* Mantém a proporção sem distorcer a imagem */
+    
+}

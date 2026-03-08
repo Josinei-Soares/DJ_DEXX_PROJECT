@@ -1,0 +1,92 @@
+
+/* reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#secao-agenda {
+    background: #0c0202;
+    color: #fff;
+    text-align: center;
+    padding: 20px;    
+}
+
+#agenda-titulo {
+    /* top | right | botton | left */
+    padding: 25px 0px 15px 0px;
+}
+
+#agenda-titulo h2{
+    color: #0f0;
+    font-family: 'font1', sans-serif;
+    font-size: 50px;
+}
+#agenda-titulo h3{
+    font-family: 'Helvetica', sans-serif;
+    color: #fff;
+    font-size: 25px;
+}
+#agenda-lista{
+    font-family: 'Helvetica', sans-serif;
+    /* para remover as bolinha da lista */
+    list-style: none;
+    /* para garantir que ocupe a largura total */
+    width: 100%;
+    max-width: 800%; /*limita a largura total*/
+     /* top | right | botton | left  */
+    margin: 0 auto 0 auto; /*para centrlizar*/
+}
+
+.campo-evento{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;  /*alinha os elementos na pontas / horizontal*/
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #333; /*cria uma borda em cima */
+    border-bottom: 1px solid #333; /*cria uma borda em baixo*/
+    padding: 25px 10px;
+    /* para limitar campo no centro */
+    width: 1100px;
+    max-width: 100%;
+    margin: 0 auto 0 auto; /*para centrlizar*/
+    gap: 10px;
+
+
+
+}
+
+.inf-evento{
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 18px;
+    gap:8px;
+}
+
+/* NOVA REGRA, mais específica, para a fonte */
+.inf-evento h4 {
+    font-family: 'Helvetica', sans-serif; 
+}
+
+.campo-evento a {
+    background-color: #0f0; /* Cor verde do seu H2 */
+    color: #000000; /* Cor preta do seu fundo */
+    text-transform: uppercase;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer; /*muda o mouse ao passar po cima*/
+    white-space: nowrap; /* Evita que o texto quebre em telas menores */
+    border-radius: 8px;
+    text-decoration: none;
+
+    font-family: 'fonte1', sans-serif;
+    
+}
+
+/* Efeito simples ao passar o mouse */
+.botao-ingreco:hover {
+    background-color: #fff;
+}

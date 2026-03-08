@@ -1,0 +1,45 @@
+
+/* reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#redesSociais{
+    background: #111111;
+    padding: 60px;
+    /* justify-content: center; */
+    text-align: center;
+}
+
+#inf-redes h2{
+    font-family: 'font1', sans-serif;
+    color: #0f0;
+    font-size: 50px;
+    margin: 0px 0px 15px;
+}
+
+#redesSociais p {
+    font-family: 'Helvetica', sans-serif;
+    background: transparent;
+    color: #9b9aa0;
+    width: 500px;
+    max-width: 100%;
+    /* Mágica da centralização: */
+    /* top | right | botton | left */
+    margin: 0px auto 20px auto;  
+}
+
+
+#icones-redes {
+    background: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    /*  */
+    width: 800px;
+    max-width: 100%;
+    /* top | right | botton | left */
+    margin: 0px auto 0px auto;
+}

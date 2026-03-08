@@ -1,0 +1,114 @@
+/* reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#secao{
+    background: #0c0202;
+    
+}
+
+#secao-sobre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*  */
+    justify-content: space-between; 
+    /* justify-content: center; */
+    gap:15px;
+    /* top | right | botton | left */
+    padding: 25px 35px 75px 40px; 
+    /*  */
+    margin: auto;
+    max-width: 1250px;
+    width: 100%;
+}
+
+
+#secao-sobre h1{
+    font-family: 'font1', sans-serif;
+    color: #0f0;
+    font-size: 50px;
+}
+#secao-sobre h3{
+    font-family: 'Helvetica', sans-serif;
+    color: #fff;
+    /* font-size: 30px; */
+}
+#secao-sobre p{
+    color: #9b9aa0;
+    font-size: 20px;
+}
+
+#sobre-lado-esq{
+    text-align: justify;
+    padding: 10px;
+    width: 560px;
+    max-width: 100%; /* boa pratica para evitar que estoure */
+    font-size: 18px;
+}
+
+.botao-presskit{
+    display: inline-block;
+
+    background-color: #9b9aa0;
+    color: #0c0202; 
+    padding: 12px 20px;
+    border-radius: 10px; /* Cantos arredondados */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+
+    /* 2. Remove o sublinhado padrão do link */
+    text-decoration: none;
+
+    /* 3. Efeito de transição suave */
+    transition: background-color 0.3s ease;
+}
+
+/* 4. Efeito ao passar o mouse (Hover) */
+.botao-presskit:hover {
+    background-color: #fff;
+    cursor: pointer; /* Garante que o mouse vire uma "mãozinha" */
+}
+
+.container-botao {
+    display: flex;
+    justify-content: center; /* Centraliza o botão horizontalmente */
+    width: 100%; /* Ocupa a largura toda para poder centralizar */
+    padding: 35px;
+}
+
+
+/*--- AQUI COMEÇA A RESPONSIVIDADE ---
+-----------------------------------------
+/* Estes estilos serão aplicados APENAS 
+  em telas com 850px de largura OU MENOS.
+*/
+@media (max-width: 850px) {
+
+    #secao-sobre {
+        /* Muda a direção de "linha" (horizontal) 
+           para "coluna" (vertical) */
+        flex-direction: column;
+        
+        /* Ajusta o espaço para quando estiverem empilhados */
+        gap: 30px; 
+    }
+
+    #sobre-lado-esq,
+    #sobre-lado-dir {
+        /* Remove as larguras fixas (350px e 385px) 
+          e faz com que ocupem 90% da largura da tela.
+          (90% fica bom para não colar nas bordas)
+        */
+        width: 90%;
+
+        /* Remove a altura fixa da div da imagem.
+          'auto' permite que a altura se ajuste ao 
+          conteúdo (a imagem) conforme ela redimensiona.
+        */
+        height: auto; 
+    }
+}

@@ -1,0 +1,10 @@
+.venv
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfilies/
+.DS_Store
+lista de tarefas.txt
+inf.txt
+fotos nao usadas/

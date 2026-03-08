@@ -1,0 +1,124 @@
+<!-- herda partes da base.html -->
+{% extends 'base.html' %}
+<!-- carrega elementos da pasta static -->
+{% load static %}
+
+<!-- inicio do bloco -->
+{% block content %}
+
+<!-- seção sobre o Daniel -->
+<section id="secao">
+    <div id="secao-sobre">
+        <div id="sobre-lado-esq">
+            <h3>Conhecendo</h3>
+            <h1>DJ DEXX </h1>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum ullam atque ab consequatur, fuga totam. Esse, eius inventore nemo quo harum labore laudantium, dolores ipsum rerum fugit repellendus incidunt officia. / Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab libero tempora atque. Consequuntur, autem. Quidem, iure sapiente neque, impedit ab delectus quaerat odit libero eaque ipsum nam, facere maiores dolores. / Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, tempora non. Enim deleniti illum aut facilis quia velit animi ad! Vel fuga sit minus minima iste culpa praesentium sed magni!. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, est dolor. Atque quibusdam sint voluptatem fugit minus maxime assumenda illo delectus facere quaerat officiis, deleniti fuga, expedita temporibus similique. Cupiditate. / Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit in odio blanditiis harum perspiciatis natus ex accusantium nihil sed doloribus nam sint, repellendus earum laboriosam non, architecto reprehenderit ad dolorum?. / Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, doloremque. Minus qui praesentium accusamus repellendus! Nam repudiandae consectetur a at doloremque! Deserunt, fugiat? Molestias ducimus laboriosam delectus sed, fuga iusto. / Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos necessitatibus, ullam quae, voluptate praesentium, nisi at provident voluptatum accusantium perspiciatis corporis quas sequi repudiandae! Blanditiis at inventore corporis provident sit.</p>
+        </div>
+        <div id="sobre-lado-dir">
+            {% for slide in slides %}
+                <input type="radio" name="carousel" id="img{{ forloop.counter }}"
+                {% if forloop.first %}checked{% endif %}>
+            {% endfor %}
+            
+            <div class="slides">
+                {% for slide in slides %}
+                    <div class="slide">
+                        <img src="{{ slide.imagem.url}}" alt="{{ slide.titulo}}">
+                    </div>
+                {% empty %}
+                    <div class="slide">
+                        <p style="color:white; text-align:center; padding-top:150px;">Nenhuma imagem carregada.</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="navigation">
+                {% for slide in slides %}
+                    <label for="img{{ forloop.counter}}" class="manual-btn"></label>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="container-botao">
+        {% if presskit %}
+            <a href="{{ presskit.arquivo.url }}" class="botao-presskit" download>DOWNLOAD LOGOS</a>
+        {% else %}
+            <a href="#" class="botao-presskit" style="opacity: 0.5; cursor: not-allowed;" disabled>PRESSKIT (Em breve)</a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- seção redes sociais -->
+<div id="redesSociais">
+    <div id="inf-redes">
+        <h2>REDES SOCIAIS</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, veniam temporibus. Sed accusantium ex suscipit nemo facilis magni, nihil deleniti aliquam voluptate cupiditate quod placeat distinctio expedita cumque, ducimus totam!</p>
+    </div>
+    <div id="icones-redes">
+        <a href="https://www.facebook.com/daniel.silva.131168" target="_blank"><img src="{% static 'img/icone-facebook-rodape.png'%}" alt="Facebook"></a>
+        <a href="#" target="_blank"><img src="{% static 'img/icone-instagram-rodape.png'%}" alt="Instagram"></a>
+        <a href="#" target="_blank"><img src="{% static 'img/icone-x.png'%}" alt="X"></a>
+        <a href="https://wa.me/555484160842?text=Vi teu site e gostaria de mais informações" target="_blank"><img src="{% static 'img/icone-whatsapp-rodape.png'%}" alt="Whatsapp"></a>
+    </div>
+</div>
+
+<!-- seção agenda de eventos -->
+<div id="secao-agenda">
+    <div id="agenda-titulo">
+        <h3>AGENDA DE</h3>
+        <h2>EVENTOS</h2>
+    </div>
+    <ul id="agenda-lista"> 
+        {% for evento in eventos_contexto %}
+        <li class="campo-evento">
+            <div class="inf-evento">
+                <h4>{{ evento.dia_evento }}</h4>
+                <h4>{{ evento.nome_club }}</h4>
+                <h4>{{ evento.end_evento }}</h4>
+            </div>
+            {% if evento.link_ingresso %}
+                <a class="botao-ingreco" href="{{ evento.link_ingresso }}" target="_blank">COMPRAR INGRESSOS</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- seção video -->
+<div class="secao-video">
+    <video id="play-video" autoplay muted loop playsinline class="video">
+        {% if video_home %}
+            <source src="{{ video_home.arquivo_video.url }}" type="video/mp4">
+        {% else %}
+            <source src="{% static 'video/video1.mp4' %}" type="video/mp4">
+        {% endif %}
+    </video>
+    <div class="video-conteudo">
+        <img src="{% static 'img/logoSemFundo.png'%}" alt="logo">
+        <a src="#" onclick="play(event)">OUÇA AGORA</a>
+    </div>
+</div>
+
+<!-- seção de contatos -->
+<section id="contatos" class="secao-contatos">
+    <div id="contatos-titulo">
+        <h3>CONTATO PARA</h3>
+        <h2>SHOWS E EVENTOS</h2>
+    </div>
+    <div class="contatos-container">
+        <div class="contato-coluna">
+            <div class="contato-bloco">
+                <h3>BALADA SHOWS ANIVERSARIOS CASAMENTOS </h3>
+                <p>
+                    Email Profissional : <a href="#">djDexx-rs@gmail.com</a><br>
+                    Rua Silveira Martins, xxx - Centro - Vacaria - RS<br>
+                    (54) 00000-0000
+                </p>
+            </div>
+        </div>    
+    </div>
+</section>
+
+<!-- fim do bloco -->
+{% endblock %}
+

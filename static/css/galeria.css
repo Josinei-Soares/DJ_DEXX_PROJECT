@@ -1,0 +1,136 @@
+
+/* --- Estilos da Galeria de Fotos --- */
+
+body {
+    background: #0c0202;
+}
+
+header {
+padding: 40px 20px;
+text-align: center;
+background: linear-gradient(90deg, #141416, #1d1d21);
+margin: 0;
+font-family: Arial, sans-serif;
+color: white;
+}
+
+
+header h1 {
+font-size: 32px;
+margin: 0;
+font-weight: 800;
+}
+
+
+header p {
+color: #cfcfcf;
+margin-top: 8px;
+}
+
+.secao-fotos {
+    /* Define o padding: 40px em cima/baixo, 5% nas laterais */
+    padding: 40px 5%; 
+    /* Um fundo escuro combina com sites de DJ */
+    background-color: #0c0202; 
+    /* Define uma largura máxima para o conteúdo não ficar esticado em telas muito grandes */
+    max-width: 1400px;
+    margin: 0 auto; /* Centraliza a seção na página */
+}
+
+.gallery-container {
+    display: grid; /* Ativa o CSS Grid */
+    
+    /* O PULO DO GATO É AQUI: */
+    /* 1. auto-fit: Cria quantas colunas de fotos couberem na tela. */
+    /* 2. minmax(350px, 1fr): Cada coluna terá no MÍNIMO 350px. 
+          O espaço que sobrar (1fr) será distribuído igualmente entre elas. */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Espaçamento entre as fotos */
+    gap: 15px;
+}
+
+.gallery-item {
+    border: 2px solid #333; /* Borda sutil */
+    border-radius: 8px; /* Cantos arredondados */
+    overflow: hidden; /* Garante que a imagem não "vaze" dos cantos arredondados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade */
+    min-width: 300px;
+}
+
+.gallery-item img {
+    /* Faz a imagem ocupar 100% do 'gallery-item' */
+    width: 100%;
+    height: 100%; /* Deixa a imagem com a altura do item (bom para grid) */
+
+    /* ESSENCIAL: Evita que a imagem fique distorcida */
+    /* A imagem vai cobrir o espaço, cortando o excesso se necessário */
+    object-fit: cover; 
+    
+    display: block; /* Remove pequenos espaços em branco abaixo da imagem */
+    
+    /* Para o efeito de hover */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* --- Efeito de Hover (Opcional) --- */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Dá um leve zoom na imagem */
+    filter: brightness(0.8); /* Escurece um pouco */
+}
+
+
+/* CONFIGURAÇÃO PARA ABRIR A FOTO E FAZER DOWNLOAD*/
+
+/* 1. Ajuste necessário no gallery-item para ancorar os botões */
+.gallery-item {
+    position: relative; /* Essencial para que o overlay fique preso à foto */
+}
+
+/* 2. Container dos botões (Overlay) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Escurece a foto no fundo */
+    opacity: 0; /* Escondido por padrão */
+    visibility: hidden;
+    transition: 0.3s;
+    display: flex;
+    justify-content: flex-start; /*alinha a esquerda*/
+    align-items: flex-start; /*alinha ao topo*/
+    gap: 15px;
+}
+
+/* 3. Mostrar os botões quando passar o mouse no item da galeria */
+.gallery-item:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.acoes-topo {
+    padding: 15px; /* Afastamento da borda */
+    display: flex;
+    gap: 10px;
+}
+
+/* 4. Estilo dos botões */
+.btn-icone {
+    color: black;
+    background: #0f0; /* Vermelho do DJ Dexx */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40%; /* Botão circular */
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-icone:hover {
+    background: white;
+    transform: scale(1.1);
+}
