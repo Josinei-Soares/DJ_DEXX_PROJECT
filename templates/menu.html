@@ -1,30 +1,32 @@
 {% load static %}
 
-<!-- menu de navegação -->
-    <nav id="menu">
-        <div id="menu-navegacao">
-            <div id="logo">
-                <a href="{% url 'home'%}"><img src="{% static 'img/logo.jpg'%}" alt="LOGO"></a>
-            </div>
-            <div id="menu">
-                <a href="{% url 'home'%}#secao">SOBRE</a>
-                <a href="{% url 'home'%}#secao-agenda">EVENTOS</a>
-                <a href="{% url 'home'%}#redesSociais">REDES-SOCIAIS</a>
-                <a href="{% url 'home'%}#contatos">CONTATO</a>
-                <a href="{% url 'galeria'%}">PRESSKIT</a>
+<nav id="menu">
+  <div id="menu-navegacao">
+    <div id="logo">
+      <a href="{% url 'home'%}"
+        ><img src="{% static 'img/logo.jpg'%}" alt="LOGO"
+      /></a>
+    </div>
 
+    <div id="btn-mobile" onclick="ToggleMenu(event)">
+      <span id="hamburger"></span>
+    </div>
 
-                <!-- botao de login do admin -->
-                 <a href="{% url 'admin:index' %}" class="btn btn-admin-login" title="Painel Admin">
-    
-                    {% if user.is_staff %}
-                        <i class="bi bi-door-open"></i>
-                    
-                    {% else %}
-                        <i class="bi bi-door-closed"></i>
-                    {% endif %}
-                    <!-- LOGIN  para aparecer o palavra login é só tirar o comentario--> 
-                </a>
-            </div>
-        </div>
-    </nav>
+    <div id="nav-links">
+      <a href="{% url 'home'%}#secao">SOBRE</a>
+      <a href="{% url 'home'%}#secao-agenda">EVENTOS</a>
+      <a href="{% url 'home'%}#redesSociais">REDES-SOCIAIS</a>
+      <a href="{% url 'home'%}#contatos">CONTATO</a>
+      <a href="{% url 'galeria'%}">PRESSKIT</a>
+
+      <a
+        href="{% url 'admin:index' %}"
+        class="btn-admin-login"
+        title="Painel Admin"
+      >
+        {% if user.is_staff %} <i class="bi bi-door-open"></i> {% else %}
+        <i class="bi bi-door-closed"></i> {% endif %}
+      </a>
+    </div>
+  </div>
+</nav>

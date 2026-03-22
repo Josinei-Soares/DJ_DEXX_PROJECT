@@ -40,6 +40,8 @@ class Presskit(models.Model):
 
 class Evento(models.Model):
     # campos conforme a inf-evento h4
+    # nome do evento
+    nome_evento = models.CharField(max_length=200, verbose_name='Nome do evento')
     # dia do evento
     dia_evento = models.CharField(max_length=100, verbose_name='Dia do evento')
     # nome do club onde vai ser o evento
@@ -49,12 +51,12 @@ class Evento(models.Model):
         max_length=255, verbose_name='Local do evento')
 
     # Opcional, mas útil: Link para os ingressos
-    link_ingresso = models.URLField(
-        max_length=300, blank=True, null=True, verbose_name='link do ingreço')
+    link_flayer= models.URLField(
+        max_length=300, blank=True, null=True, verbose_name='link do flayer')
 
     def __str__(self):
         # isso ajuda a identificar o evento no painel de admin
-        return f"{self.dia_evento} - {self.nome_club}"
+        return f"{self.nome_evento} - {self.dia_evento} - {self.nome_club}"
 
 class FotoGaleria(models.Model):
     # Um título/descrição opcional para a foto (pode deixar em branco no admin)

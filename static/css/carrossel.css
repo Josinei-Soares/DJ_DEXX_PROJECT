@@ -9,12 +9,12 @@
 }
 /* Esconde os botões de rádio */
 #sobre-lado-dir input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 .slides {
   display: flex;
-  width: 1710px; /* 3 x 570px */
+  width: max-content; /* o containe vai esticar sozinho conforme o numer de slides*/
   transition: transform 0.5s ease;
 }
 
@@ -31,7 +31,7 @@
   object-position: center; /*centraliza a imagem dentro da área */
 }
 
-/* Controls to slide images */
+/* Controles para os slides do carrossel */
 
 #img1:checked ~ .slides {
   transform: translateX(0);
@@ -43,6 +43,13 @@
 /* a cada slide diminua o valor 570 */
 #img3:checked ~ .slides {
   transform: translateX(-1140px);
+}
+/* a cada slide diminua o valor 570 */
+#img4:checked ~ .slides {
+  transform: translateX(-1710px);
+}
+#img5:checked ~ .slides {
+  transform: translateX(-2280px);
 }
 /* a cada slide diminua o valor 570 (some ao negativo) */
 /*  se acrescentar mais slides  */
@@ -69,7 +76,8 @@
 
 #img1:checked ~ .navigation label[for="img1"],
 #img2:checked ~ .navigation label[for="img2"],
-#img3:checked ~ .navigation label[for="img3"] {
+#img3:checked ~ .navigation label[for="img3"],
+#img4:checked ~ .navigation label[for="img4"],
+#img5:checked ~ .navigation label[for="img5"] {
   background: #5e5e5e;
 }
-

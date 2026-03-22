@@ -1,62 +1,137 @@
-
 /* importando fonte */
 @font-face {
-    font-family: 'font1';
-    src: url('../font/Oswald-Medium.ttf');
-    font-weight: 700;
+  font-family: "font1";
+  src: url("../font/Oswald-Medium.ttf");
+  font-weight: 700;
 }
 
 /* reset margin */
 * {
-    margin:0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-#menu{
-    font-family: 'font1', sans-serif;
-    font-size: 25px;
-    background: #0c0202;    
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-#menu-navegacao{
-    display: flex;
-    flex-direction: row;
-    padding: 40px 15px;
-
-    /* ajusta a logo do lado esquerdo e o menu do lado direito */
-    justify-content: space-between;
-    width: 100%; /*ocupa total da largura 1350px*/ 
-    max-width: 1250px; /*limita maximo da largura*/ 
-    margin: 0 auto;
-    align-items: center;
+#menu {
+  font-family: "font1", sans-serif;
+  font-size: 25px;
+  background: #0c0202;
+  width: 100%;
 }
 
-#menu-navegacao a {
-    text-decoration: none;
-    color: #0f0;
-    padding: 4px;
+#menu-navegacao {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 15px; /* Reduzi um pouco o padding para não ficar gigante no mobile */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+#nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#nav-links a {
+  text-decoration: none;
+  color: #0f0;
+  padding: 4px;
+  transition: 0.3s;
+}
+
+#nav-links a:hover {
+  text-shadow: 0 0 10px #0f0; /* Efeito Neon no hover */
 }
 
 #logo img {
-  width: 200px;
-  height: 80px;
+  width: 180px; /* Ajuste leve para telas menores */
+  height: 70px;
   border-radius: 8px;
-  object-fit: cover; /* manten a proporção e preenche*/
-  object-position: center; /*centraliza a imagem dentro da área */
-
+  object-fit: cover;
+  object-position: center;
 }
 
-/* botão login para painel admin */
-.btn-admin-login {
-    /* ADICIONE ESTAS 3 LINHAS */
-    background: none;
-    border: none;     
-    padding: 0; 
-    font-size: 25px;     
+/* BOTÃO MOBILE - ESCONDIDO POR PADRÃO */
+#btn-mobile {
+  display: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #0f0;
+}
 
-    /* Faz o mouse parecer um link */
-    cursor: pointer; 
-    
-    /* Mantenha a cor do seu ícone (se ela mudou) */
-    color: #0f0;
+#hamburger {
+  border-top: 8px solid currentColor;
+  width: 55px;
+  display: block;
+}
+
+#hamburger::after,
+#hamburger::before {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 8px;
+  background: currentColor;
+  margin-top: 8px;
+  transition: 0.3s;
+  position: relative;
+}
+
+/* RESPONSIVIDADE  */
+@media (max-width: 950px) {
+  /* Ajuste o 950px conforme o menu começar a apertar */
+
+  #btn-mobile {
+    display: block; /* Mostra o botão no mobile */
+    /* Ajuste os valores abaixo: top, right, bottom, left */
+    margin-right: 20px;
+    margin-top: 5px;
+
+    padding: 15px; /* isso aumenta a area onde o dedo toca*/
+  }
+
+  #nav-links {
+    display: none; /* Esconde os links */
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 110px; /* Ajuste conforme a altura do seu cabeçalho */
+    right: 0;
+    background: #0c0202;
+    /* AUMENTE ESTE VALOR PARA O MENU FICAR NA FRENTE DE TUDO */
+    z-index: 9999 !important;
+    padding: 20px;
+    border-bottom: 2px solid #0f0;
+  }
+
+  /* Quando o menu estiver aberto */
+  #menu.active #nav-links {
+    display: flex !important;
+  }
+
+  /* Animação do Hamburger para "X" (Opcional, mas fica top) */
+  #menu.active #hamburger {
+    border-top-color: transparent;
+  }
+  #menu.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+  #menu.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -15px;
+  }
+}
+
+.btn-admin-login {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 25px;
+  cursor: pointer;
+  color: #0f0;
 }
